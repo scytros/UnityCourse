@@ -10,7 +10,7 @@ public class Movement : MonoBehaviour
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Player player;
-    private Vector2 moveAxis;
+    [SerializeField] private Vector2 moveAxis;
 
     private void Awake()
     {
@@ -28,17 +28,7 @@ public class Movement : MonoBehaviour
         controls.Disable();
     }
 
-    //private void FixedUpdate()
-    //{
-    //    //TODO: fix input
-    //    float moveHorizontal = Input.GetAxis("Horizontal");
-    //    float moveVertical = Input.GetAxis("Vertical");
-
-    //    Vector3 movement = new Vector3(moveHorizontal, moveVertical, 0);
-    //    transform.position += (movement * player.PlayerStats.MovementSpeed);
-    //}
-
-    private void FixedUpdate()
+    private void Update()
     {
         float xSpeed = moveAxis.x * Time.deltaTime * player.PlayerStats.MovementSpeed;
         float ySpeed = moveAxis.y * Time.deltaTime * player.PlayerStats.MovementSpeed;

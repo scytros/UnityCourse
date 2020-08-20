@@ -176,7 +176,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 7841248140977840470}
-  player: {fileID: 0}
+  player: {fileID: 725747026077610620}
+  moveAxis: {x: 0, y: 0}
 --- !u!114 &1265446185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,4 +227,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerStats:
     health: 100
-    movementSpeed: 10
+    movementSpeed: 8
