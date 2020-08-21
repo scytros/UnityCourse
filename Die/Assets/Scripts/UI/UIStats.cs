@@ -14,18 +14,28 @@ public class UIStats : MonoBehaviour
     [SerializeField] private Text projectileSpeed;
     [SerializeField] private Text projectileBounces;
 
-    private void Update()
+    private void Awake()
+    {
+        player = FindObjectOfType<Player>();
+    }
+
+    private void OnEnable()
     {
         RedrawStats();
+        Time.timeScale = 0;
+    }
+
+    private void OnDisable()
+    {
+        Time.timeScale = 1;
     }
 
     public void RedrawStats()
     {
-        health.text = "Health: " + player.PlayerStats.Health.ToString();
-        movementSpeed.text = "MovementSpeed: " + player.PlayerStats.MovementSpeed.ToString();
-        projectileCount.text = "MovementSpeed: " + player.PlayerStats.ExtraUpgrades.ProjectileCount.ToString();
-        projectileDamage.text = "MovementSpeed: " + player.PlayerStats.ExtraUpgrades.ProjectileDamage.ToString();
-        projectileSpeed.text = "MovementSpeed: " + player.PlayerStats.ExtraUpgrades.ProjectileSpeed.ToString();
-        projectileBounces.text = "MovementSpeed: " + player.PlayerStats.ExtraUpgrades.ProjectileBounces.ToString();
+        movementSpeed.text = "MovementSpeed: " + player.Stats.MovementSpeed.ToString();
+        projectileCount.text = "ProjectileCount: " + player.Stats.ProjectileCount.ToString();
+        projectileDamage.text = "ProjectileDamage: " + player.Stats.ProjectileDamage.ToString();
+        projectileSpeed.text = "ProjectileSpeed: " + player.Stats.ProjectileSpeed.ToString();
+        projectileBounces.text = "ProjectileBounces: " + player.Stats.ProjectileBounces.ToString();
     }
 }

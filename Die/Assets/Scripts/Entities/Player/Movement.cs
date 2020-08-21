@@ -30,8 +30,8 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
-        float xSpeed = moveAxis.x * Time.deltaTime * player.PlayerStats.MovementSpeed;
-        float ySpeed = moveAxis.y * Time.deltaTime * player.PlayerStats.MovementSpeed;
+        float xSpeed = moveAxis.x * Time.deltaTime * player.Stats.MovementSpeed;
+        float ySpeed = moveAxis.y * Time.deltaTime * player.Stats.MovementSpeed;
 
         transform.position += new Vector3(xSpeed, ySpeed);
     }

@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &967438693
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 967438694}
+  m_Layer: 8
+  m_Name: ProjectilePosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &967438694
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967438693}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7841248140977840471}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7841248140977840457
 GameObject:
   m_ObjectHideFlags: 0
@@ -13,11 +43,9 @@ GameObject:
   - component: {fileID: 7841248140977840470}
   - component: {fileID: 3829605218489842072}
   - component: {fileID: 1265446186}
-  - component: {fileID: 1265446184}
   - component: {fileID: 7841248140977840469}
-  - component: {fileID: 1265446185}
-  - component: {fileID: 1255932549088237901}
-  - component: {fileID: 725747026077610620}
+  - component: {fileID: -1857310083465108921}
+  - component: {fileID: 542283554}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -35,7 +63,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 967438694}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -149,20 +178,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7654cfbc8e50c984880665b2c245e2ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1265446184
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7841248140977840457}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7decf101eb78d214d8877ef79488a57c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  color: {r: 0.17307985, g: 1, b: 0, a: 0}
-  distance: 20
 --- !u!114 &7841248140977840469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,44 +191,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 7841248140977840470}
-  player: {fileID: 725747026077610620}
+  player: {fileID: -1857310083465108921}
   moveAxis: {x: 0, y: 0}
---- !u!114 &1265446185
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7841248140977840457}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce264fa784c062145b4842006f71a3a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movement: {fileID: 7841248140977840469}
-  cooldown: 0.5
-  cooldownLeft: 0
-  canUseAbility: 1
-  dashDistance: 10
-  dashDuration: 0.1
---- !u!114 &1255932549088237901
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7841248140977840457}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0c5650574924fa498eab426f41c2971, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  arrowPrefab: {fileID: 3273619045963294674, guid: 3fe29868680032c4985dc5f261ecdef0,
-    type: 3}
-  cooldown: 1
-  cooldownLeft: 0
-  canAttack: 1
---- !u!114 &725747026077610620
+--- !u!114 &-1857310083465108921
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -225,6 +205,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff21b399efaafdb4f918915b556e5a87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerStats:
+  stats:
     health: 100
-    movementSpeed: 8
+    movementSpeed: 10
+    projectileCount: 1
+    projectileDamage: 25
+    projectileSpeed: 25
+    projectileBounces: 2
+--- !u!114 &542283554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7841248140977840457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e6924e3fd52e1e408794a672446bd0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  host: {fileID: -1857310083465108921}
+  arrowPrefab: {fileID: 3273619045963294674, guid: 3fe29868680032c4985dc5f261ecdef0,
+    type: 3}
+  projectilePosition: {fileID: 967438693}
+  cooldown: 0.65
+  cooldownLeft: 0
+  canAttack: 1

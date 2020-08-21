@@ -8,7 +8,10 @@ public class RoomCompleter : MonoBehaviour
     {
         if (collider.GetComponent<Player>())
         {
-            FindObjectOfType<RoomManager>().CompleteCurrentRoom();
+            RoomManager roomManager = FindObjectOfType<RoomManager>();
+
+            roomManager.ActivateNextRoomTrigger();
+            roomManager.CompleteCurrentRoom();
             Destroy(gameObject);
         }
     }

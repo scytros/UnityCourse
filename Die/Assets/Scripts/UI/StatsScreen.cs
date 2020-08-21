@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StatsScreen : MonoBehaviour
 {
+    [SerializeField] private Player player;
     [SerializeField] private GameObject playerScreen;
+    [SerializeField] private Text healthUI;
 
     private InputManager controls;
 
@@ -20,11 +23,22 @@ public class StatsScreen : MonoBehaviour
     private void OnEnable()
     {
         controls.Enable();
+        player = FindObjectOfType<Player>();
     }
 
     private void OnDisable()
     {
         controls.Disable();
+    }
+
+    private void Update()
+    {
+        RedrawHealth();
+    }
+
+    public void RedrawHealth()
+    {
+        healthUI.text = "Health: " + player.Stats.Health.ToString();
     }
 
     private void ToggleStats()

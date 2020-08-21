@@ -3898,7 +3898,7 @@ GameObject:
   - component: {fileID: 2153048420527934828}
   - component: {fileID: 775130530131340144}
   - component: {fileID: 4349148961224734460}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Doors
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4090,11 +4090,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 586abc6ab3b7f2840a8f9e19a96810ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemies: []
   DoorTiles: {fileID: 2153048420527934828}
   WallTiles: {fileID: 2239540650901702196}
-  id: 4
+  StartTrigger: {fileID: 0}
+  id: 5
   isCompleted: 0
-  roomBounds: {x: 0, y: 0}
+  keyHasDropped: 0
 --- !u!1 &7941086448176096457
 GameObject:
   m_ObjectHideFlags: 0
@@ -4138,7 +4140,7 @@ GameObject:
   - component: {fileID: 2239540650901702196}
   - component: {fileID: 5467681980739511681}
   - component: {fileID: 8431982960696738303}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}

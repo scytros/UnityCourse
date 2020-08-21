@@ -56,6 +56,17 @@ public class @InputManager : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
+                    ""name"": """",
+                    ""id"": ""061ed75a-5373-4daf-9c9a-9f8686a5d706"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard And Mouse"",
+                    ""action"": ""ToggleStatsScreen"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
                     ""name"": ""WASD Keys"",
                     ""id"": ""59f5a4be-a9f0-4ead-a139-16d78d5c24ee"",
                     ""path"": ""2DVector"",

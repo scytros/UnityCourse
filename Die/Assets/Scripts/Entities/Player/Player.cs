@@ -4,23 +4,20 @@ using UnityEngine;
 
 public class Player : Entity
 {
-    public Stats PlayerStats;
-
-    public Player()
+    public override void TakeDamage(int amount)
     {
-        PlayerStats = new Stats(100, 10, new Stats.Upgrades(1, 10, 50, 0));
+        base.TakeDamage(amount);
+
+        if (Stats.Health <= 0)
+        {
+            FindObjectOfType<EndUI>().SetEndScreen(false);
+        }
     }
 
-    public void ChangeHealth(int amount)
+    public override void Heal(int amount)
     {
-        PlayerStats.Health -= amount;
-        //update Stats
-        //update UI
-        //if health <= 0 then game over
-    }
+        base.Heal(amount);
 
-    public void ChangeMovementSpeed(int amount)
-    {
-
+        //TODO: Cool effect
     }
 }

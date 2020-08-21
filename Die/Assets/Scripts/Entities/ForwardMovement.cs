@@ -4,21 +4,12 @@ using UnityEngine;
 
 public class ForwardMovement : MonoBehaviour
 {
-    [SerializeField] private float speed;
-    private Vector3 direction;
+    [SerializeField] private Rigidbody2D rb;
+    private Entity host;
 
     private void Start()
     {
-        direction = transform.up;
-    }
-
-    private void FixedUpdate()
-    {
-        transform.position += direction * Time.deltaTime * speed;
-    }
-
-    public void ChangeDirection(Vector3 newDirection)
-    {
-        direction = newDirection;
+        host = GetComponent<ProjectileHit>().Host;
+        rb.velocity = transform.up * host.Stats.ProjectileSpeed;
     }
 }
