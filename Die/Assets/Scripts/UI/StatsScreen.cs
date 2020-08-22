@@ -7,11 +7,15 @@ public class StatsScreen : MonoBehaviour
 {
     [SerializeField] private Player player;
     [SerializeField] private GameObject playerScreen;
-    [SerializeField] private Text healthUI;
+
+    [SerializeField] private Text healthText;
+    [SerializeField] private Image healthImage;
 
     private InputManager controls;
 
     private bool isOpen;
+
+    private float lastHealth;
 
     private void Awake()
     {
@@ -38,7 +42,17 @@ public class StatsScreen : MonoBehaviour
 
     public void RedrawHealth()
     {
-        healthUI.text = "Health: " + player.Stats.Health.ToString();
+        if (lastHealth != player.Stats.Health)
+        {
+            lastHealth = player.Stats.Health;
+
+            float currentHealth = player.Stats.Health;
+            float maxHealth = player.Stats.MaxHealth;
+            float fillValue = ((maxHealth * currentHealth) / 100) / 100;
+
+            healthText.text = currentHealth + " / " + maxHealth;
+            healthImage.fillAmount = fillValue;
+        }
     }
 
     private void ToggleStats()

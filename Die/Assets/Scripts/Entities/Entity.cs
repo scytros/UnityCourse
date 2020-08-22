@@ -11,14 +11,11 @@ public abstract class Entity : MonoBehaviour
 
     public virtual void TakeDamage(int amount)
     {
-        Debug.Log(this.gameObject.name + " took -" + amount + "- of damage");
         stats.Health -= amount;
-        //TODO: Cool effect
     }
 
     public virtual void Heal(int amount)
     {
         stats.Health += amount;
-        //TODO: Cool effect
     }
 }

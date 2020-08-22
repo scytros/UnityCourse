@@ -44,8 +44,6 @@ public class Room : MonoBehaviour
 
     public void Complete()
     {
-        Debug.Log("Doors of room " + "'" + id + "'" + " have been opened.");
-
         isCompleted = true;
         doorTiles.gameObject.SetActive(false);
     }

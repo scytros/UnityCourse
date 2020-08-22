@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ProjectileHit : MonoBehaviour
 {
-    public Entity Host { get; set; }
     [SerializeField] Rigidbody2D rb;
     [SerializeField] private ForwardMovement forwardMovement;
 
@@ -12,7 +11,15 @@ public class ProjectileHit : MonoBehaviour
     [SerializeField] private LayerMask DamageableLayers;
     [SerializeField] private int bouncesLeft;
 
-    private void OnCollisionEnter2D(Collision2D col)
+    private GameManager gameManager;
+    public Entity Host { get; set; }
+
+    private void Awake()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
     {
         if (IsInLayerMask(col.gameObject.layer, HittableLayers))
         {
@@ -20,13 +27,12 @@ public class ProjectileHit : MonoBehaviour
         }
     }
 
-    private void HandleCollision(Collision2D col)
+    private void HandleCollision(Collider2D col)
     {
-        //TODO: Hit sound
-        
         if (IsInLayerMask(col.gameObject.layer, DamageableLayers))
         {
-            col.collider.GetComponent<Entity>().TakeDamage(Host.Stats.ProjectileDamage);
+            gameManager.PlayAudio(GameManager.Sound.ProjectileHit);
+            col.GetComponent<Entity>().TakeDamage(Host.Stats.ProjectileDamage);
 
             Destroy(gameObject);
         }
@@ -37,16 +43,6 @@ public class ProjectileHit : MonoBehaviour
         }
         else
         {
-            //Vector2 inDirection = rb.velocity;
-            //Vector2 inNormal = col.contacts[0].normal;
-            //Vector2 newVelocity = Vector2.Reflect(inDirection, inNormal);
-
-            //rb.velocity = new Vector2(0, 0);
-
-
-            //Vector3 newVelocity = Vector3.Reflect(rb.velocity, col.contacts[0].normal);
-
-            //rb.velocity = -newVelocity;
             bouncesLeft--;
         }
     }

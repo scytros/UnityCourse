@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RandomMovement : MonoBehaviour
 {
-    [SerializeField] Rigidbody2D rb;
+    [SerializeField] private Rigidbody2D rb;
 
     [SerializeField] private float movementCooldown = 1;
     [SerializeField] private float movementForce = 50;

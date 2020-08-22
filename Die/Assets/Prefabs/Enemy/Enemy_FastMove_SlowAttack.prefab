@@ -69,7 +69,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7369880507485808517}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1086466682}
@@ -106,7 +106,7 @@ Transform:
   m_GameObject: {fileID: 8998198875102586240}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 1}
   m_Children:
   - {fileID: 1086466682}
   m_Father: {fileID: 0}
@@ -224,12 +224,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats:
-    health: 50
-    movementSpeed: 20
+    maxHealth: 90
+    health: 90
+    movementSpeed: 10
     projectileCount: 1
-    projectileDamage: 15
+    projectileDamage: 25
     projectileSpeed: 10
     projectileBounces: 0
+  potionPrefab: {fileID: 3851672922918232802, guid: 19254c11d80a8c54792d729d13bb44f4,
+    type: 3}
 --- !u!114 &3768462919041741169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,7 +247,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 7369880508386971106}
   movementCooldown: 0.65
-  movementForce: 7.5
+  movementForce: 10
 --- !u!114 &337183605671667071
 MonoBehaviour:
   m_ObjectHideFlags: 0

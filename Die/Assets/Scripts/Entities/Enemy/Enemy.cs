@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Enemy : Entity
 {
+    [SerializeField] private GameObject potionPrefab;
+
     private RoomManager roomManager;
 
     private void Awake()
@@ -17,14 +19,25 @@ public class Enemy : Entity
 
         if (Stats.Health <= 0)
         {
+            ItemDrop();
             Destroy(gameObject);
         }
-
-        //TODO: Knockback?
     }
 
     private void OnDestroy()
     {
         roomManager.RemoveEnemy(gameObject);
+    }
+
+    private void ItemDrop()
+    {
+        System.Random random = new System.Random();
+        float randomValue = random.Next(0, 100);
+
+        if (randomValue > 50)
+        {
+            GameObject potion = GameObject.Instantiate(potionPrefab, transform.position, Quaternion.identity);
+            potion.GetComponent<Potion>().SetRandomEffect();
+        }
     }
 }

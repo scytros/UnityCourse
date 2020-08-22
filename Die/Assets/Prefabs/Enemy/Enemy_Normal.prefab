@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 64738936}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 991744878}
@@ -224,12 +224,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats:
+    maxHealth: 100
     health: 100
     movementSpeed: 10
     projectileCount: 1
     projectileDamage: 25
     projectileSpeed: 10
     projectileBounces: 0
+  potionPrefab: {fileID: 3851672922918232802, guid: 19254c11d80a8c54792d729d13bb44f4,
+    type: 3}
 --- !u!114 &5911913808202907788
 MonoBehaviour:
   m_ObjectHideFlags: 0

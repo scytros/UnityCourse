@@ -19,7 +19,7 @@ public partial class RoomManager : MonoBehaviour
 
     public void CompleteCurrentRoom()
     {
-        gameManager.PlayAudio(2);
+        gameManager.PlayAudio(GameManager.Sound.RoomCompleted);
 
         currentRoom.Complete();
 
@@ -29,7 +29,6 @@ public partial class RoomManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Game Finished!");
             FindObjectOfType<EndUI>().SetEndScreen(true);
         }
     }
@@ -38,8 +37,7 @@ public partial class RoomManager : MonoBehaviour
     {
         if (!currentRoom.IsCompleted)
         {
-            //TODO: New room sound
-            Debug.Log(currentRoom + " has started!");
+            gameManager.PlayAudio(GameManager.Sound.RoomStart);
             currentRoom.StartRoomTrigger.ListeningToCollision = false;
 
             currentRoom.SpawnEnemies();

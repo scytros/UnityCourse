@@ -6,28 +6,36 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private AudioSource oneShotAudioSource;
     [SerializeField] private AudioSource gameMusicAudioSource;
-    [SerializeField] private AudioClip keySpawn;
+
     [SerializeField] private AudioClip roomStart;
     [SerializeField] private AudioClip roomCompleted;
+    [SerializeField] private AudioClip projectileHit;
 
+    public enum Sound
+    {
+        KeySpawn,
+        RoomStart,
+        RoomCompleted,
+        ProjectileHit
+    }
 
     private void Awake()
     {
         Time.timeScale = 1;
     }
 
-    public void PlayAudio(int clip)
+    public void PlayAudio(Sound sound)
     {
-        switch (clip)
+        switch (sound)
         {
-            case 0:
-                oneShotAudioSource.PlayOneShot(keySpawn);
-                break;
-            case 1:
+            case Sound.RoomStart:
                 oneShotAudioSource.PlayOneShot(roomStart);
                 break;
-            case 2:
+            case Sound.RoomCompleted:
                 oneShotAudioSource.PlayOneShot(roomCompleted);
+                break;
+            case Sound.ProjectileHit:
+                oneShotAudioSource.PlayOneShot(projectileHit);
                 break;
         }
     }
