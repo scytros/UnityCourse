@@ -46,7 +46,7 @@ public partial class RoomManager : MonoBehaviour
 
     private void CreateKey()
     {
-        Vector2 spawnPos = currentRoom.GetRandomPositionInRoom;
+        Vector2 spawnPos = currentRoom.GetRandomPositionInRoom();
         GameObject.Instantiate(roomKey, spawnPos, Quaternion.identity);
     }
 

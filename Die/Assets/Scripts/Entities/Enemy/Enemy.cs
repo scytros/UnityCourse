@@ -20,13 +20,9 @@ public class Enemy : Entity
         if (Stats.Health <= 0)
         {
             ItemDrop();
+            roomManager.RemoveEnemy(gameObject);
             Destroy(gameObject);
         }
-    }
-
-    private void OnDestroy()
-    {
-        roomManager.RemoveEnemy(gameObject);
     }
 
     private void ItemDrop()

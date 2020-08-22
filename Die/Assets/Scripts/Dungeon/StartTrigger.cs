@@ -17,7 +17,7 @@ public class StartTrigger : MonoBehaviour
     {
         if (collision.GetComponent<Player>() && ListeningToCollision)
         {
-            collider.enabled = false;
+            ListeningToCollision = false;
             GetComponentInParent<RoomManager>().StartRoom();
         }
     }

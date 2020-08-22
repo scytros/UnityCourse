@@ -17,6 +17,8 @@ public class Room : MonoBehaviour
     [SerializeField] private bool isCompleted;
     [SerializeField] private bool keyHasDropped;
 
+    private List<Vector2> tileWorldLocations = new List<Vector2>();
+
     public bool IsCompleted { get { return isCompleted; } }
     public bool KeyHasDropped { get { return keyHasDropped; } set { keyHasDropped = value; } }
     public bool HasEnemiesLeft
@@ -35,7 +37,6 @@ public class Room : MonoBehaviour
     public StartTrigger StartRoomTrigger { get { return startRoomTrigger; } }
 
     public int Id { get { return id; } }
-    public Vector2 GetRandomPositionInRoom { get { return CalculateRoomBounds(); } }
 
     private void Awake()
     {
@@ -48,28 +49,29 @@ public class Room : MonoBehaviour
         doorTiles.gameObject.SetActive(false);
     }
 
-    private Vector2 CalculateRoomBounds()
-    {
-        int Offset = 2;
-
-        Vector2 min = wallTiles.CellToWorld(wallTiles.cellBounds.min);
-        Vector2 max = wallTiles.CellToWorld(wallTiles.cellBounds.max);
-
-        Vector2 spawnPos = new Vector2();
-        spawnPos.x = Random.Range(min.x + Offset, max.x - Offset);
-        spawnPos.y = Random.Range(min.y + Offset, max.y - Offset);
-
-        return spawnPos;
-    }
-
     public void SpawnEnemies()
     {
         for (int i = 0; i < prefabEnemies.Count; i++)
         {
-            Vector2 spawnPos = GetRandomPositionInRoom;
-            GameObject enemyobj = GameObject.Instantiate(prefabEnemies[i].gameObject, spawnPos, Quaternion.identity);
+            GameObject enemyobj = GameObject.Instantiate(prefabEnemies[i].gameObject, GetRandomPositionInRoom(), Quaternion.identity);
             enemiesLeft.Add(enemyobj);
         }
+    }
+
+    public Vector2 GetRandomPositionInRoom()
+    {
+        foreach (var pos in wallTiles.cellBounds.allPositionsWithin)
+        {
+            Vector3Int localPlace = new Vector3Int(pos.x, pos.y, pos.z);
+            Vector3 place = wallTiles.CellToWorld(localPlace);
+            if (!wallTiles.HasTile(localPlace))
+            {
+                tileWorldLocations.Add(place);
+            }
+        }
+
+        System.Random random = new System.Random();
+        return tileWorldLocations[random.Next(0, tileWorldLocations.Count)];
     }
 
     public void RemoveEnemy(GameObject enemy)
