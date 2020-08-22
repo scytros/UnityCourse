@@ -294,7 +294,7 @@ MonoBehaviour:
     health: 100
     movementSpeed: 7
     projectileCount: 1
-    projectileDamage: 666
+    projectileDamage: 25
     projectileSpeed: 25
     projectileBounces: 0
 --- !u!114 &542283554

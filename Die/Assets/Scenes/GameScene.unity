@@ -460,32 +460,6 @@ PrefabInstance:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 2044750718}
-    - target: {fileID: 4165276749862502306, guid: 364c78dd16fa6d3469d1f62a959ed0c4,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4238812926862807253, guid: 364c78dd16fa6d3469d1f62a959ed0c4,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7930946145910226368, guid: 364c78dd16fa6d3469d1f62a959ed0c4,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8645644236050254577, guid: 364c78dd16fa6d3469d1f62a959ed0c4,
-        type: 3}
-      propertyPath: test
-      value: 
-      objectReference: {fileID: 1920527362224591997, guid: 1dfe1b3e910afd34bacf0bb48fab0145,
-        type: 3}
-    - target: {fileID: 9090389495627323556, guid: 364c78dd16fa6d3469d1f62a959ed0c4,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 9191563289713697392, guid: 364c78dd16fa6d3469d1f62a959ed0c4,
         type: 3}
       propertyPath: m_LocalPosition.x
