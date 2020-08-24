@@ -14,4 +14,9 @@ public class SceneNavigation : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenuScene", LoadSceneMode.Single);
     }
+
+    public void GoToInstructionsScene()
+    {
+        SceneManager.LoadScene("InstructionsScene", LoadSceneMode.Single);
+    }
 }

@@ -10,7 +10,6 @@ public class UIStats : MonoBehaviour
     [SerializeField] private Text movementSpeed;
     [SerializeField] private Text projectileDamage;
     [SerializeField] private Text projectileSpeed;
-    [SerializeField] private Text projectileBounces;
 
     private void Awake()
     {
@@ -33,6 +32,5 @@ public class UIStats : MonoBehaviour
         movementSpeed.text = "MovementSpeed: " + player.Stats.MovementSpeed.ToString();
         projectileDamage.text = "ProjectileDamage: " + player.Stats.ProjectileDamage.ToString();
         projectileSpeed.text = "ProjectileSpeed: " + player.Stats.ProjectileSpeed.ToString();
-        projectileBounces.text = "ProjectileBounces: " + player.Stats.ProjectileBounces.ToString();
     }
 }
